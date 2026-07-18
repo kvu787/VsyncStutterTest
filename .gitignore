@@ -1,3 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# I use this folder when doing an export operation and Godot Editor asks for a folder.
+/MyBuildOutput*/
