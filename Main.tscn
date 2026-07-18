@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dcbjogh4hmlr6"]
+
+[ext_resource type="Script" uid="uid://bve7hdmhqbn22" path="res://Sphere.gd" id="1_glv2v"]
+[ext_resource type="Material" uid="uid://tg45jrexrkml" path="res://Materials/Blue.tres" id="1_uu6xs"]
+[ext_resource type="Material" uid="uid://ml07dhnkqk1l" path="res://Materials/Green.tres" id="3_r0du0"]
+[ext_resource type="Material" uid="uid://b6cvr1r367djh" path="res://Materials/Red.tres" id="4_cm0pq"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rxg2q"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_glv2v"]
+size = Vector2(10, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r0du0"]
+
+[node name="Node3D" type="Node3D" unique_id=689179192]
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1535765966]
+transform = Transform3D(0.8660254, -0.43301272, 0.24999999, 0, 0.49999997, 0.86602545, -0.5, -0.75, 0.43301266, 0, 0, 0)
+
+[node name="Camera" type="Camera3D" parent="CameraPivot" unique_id=713662339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Sphere" type="MeshInstance3D" parent="." unique_id=433659051]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = ExtResource("1_uu6xs")
+mesh = SubResource("SphereMesh_rxg2q")
+script = ExtResource("1_glv2v")
+
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=1610620374]
+material_override = ExtResource("3_r0du0")
+mesh = SubResource("PlaneMesh_glv2v")
+
+[node name="Sunlight" type="DirectionalLight3D" parent="." unique_id=383647925]
+transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 0, 0, 0)
+
+[node name="Box" type="MeshInstance3D" parent="." unique_id=388198485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1.5)
+material_override = ExtResource("4_cm0pq")
+mesh = SubResource("BoxMesh_r0du0")
