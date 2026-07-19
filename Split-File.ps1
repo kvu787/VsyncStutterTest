@@ -3,7 +3,10 @@ param(
     [string]$FilePath,
 
     [Parameter(Mandatory)]
-    [int]$NumParts
+    [int]$NumParts,
+
+    [Parameter(Mandatory)]
+    [int]$PadLength
 )
 
 Set-StrictMode -Version "Latest"
@@ -33,7 +36,7 @@ for ($i = 0; $i -lt $NumParts; $i++) {
 
 $partNumber = 1
 for ($i = 0; $i -lt $ranges.Count; $i += 2) {
-    $outputPath = Join-Path $directory "$($baseName) part $($partNumber)$($extension)"
+    $outputPath = Join-Path $directory "$($baseName) part $(('{0:D' + $PadLength + '}') -f $partNumber)$($extension)"
     $lines[$ranges[$i]..$ranges[$i + 1]] | Set-Content -LiteralPath $outputPath
     $partNumber += 1
 }
