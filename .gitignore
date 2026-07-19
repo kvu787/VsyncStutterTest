@@ -1,6 +1,5 @@
-# Godot 4+ specific ignores
-.godot/
-/android/
-
 # I use this folder when doing an export operation and Godot Editor asks for a folder.
 /MyBuildOutput*/
+
+# I use this folder to consolidate logging output into a convenient place.
+/MyLogOutput*/
