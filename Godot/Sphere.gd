@@ -3,11 +3,11 @@
 
 extends MeshInstance3D
 
-@export var speed: float = 8.0
-@export var travel_distance: float = 3.0
+var speed: float = 8.0
+var travel_distance: float = 3.0
 
 # Get this from "Windows 11 > Settings > Display > Advanced display > Choose a refresh rate"
-@export var fixed_delta_refresh_rate_hz: float = 240.0
+var fixed_delta_refresh_rate_hz: float = 240.0
 
 var direction: int = 1
 
