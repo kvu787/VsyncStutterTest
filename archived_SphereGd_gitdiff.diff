@@ -1,0 +1,96 @@
+diff --git a/Godot/Sphere.gd b/Godot/Sphere.gd
+index d3bd45c..bb72584 100644
+--- a/Godot/Sphere.gd
++++ b/Godot/Sphere.gd
+@@ -1,22 +1,69 @@
+-# Assume position starts at X=0
+-# Assume vsync=on and game runs at locked vsync
+-
+-extends MeshInstance3D
+-
+-var speed: float = 8.0
+-var travel_distance: float = 3.0
+-
+-# Get this from "Windows 11 > Settings > Display > Advanced display > Choose a refresh rate"
+-var fixed_delta_refresh_rate_hz: float = 240.0
+-
+-var direction: int = 1
+-
+-func _process(delta: float) -> void:
+-	if self.fixed_delta_refresh_rate_hz > 0.0:
+-		delta = 1.0 / self.fixed_delta_refresh_rate_hz
+-
+-	self.position.x += self.direction * self.speed * delta
+-
+-	# Some overshoot is fine
+-	if abs(self.position.x) > self.travel_distance:
+-		self.direction *= -1
++# Assume position starts at X=0
++# Assume vsync=on and game runs at locked vsync
++
++extends MeshInstance3D
++
++# Get this from "Windows 11 > Settings > Display > Advanced display > Choose a refresh rate"
++var fixed_delta_refresh_rate_hz: float = 240.0
++
++var speed: float = 8.0
++var travel_distance: float = 3.0
++var direction: int = 1
++var previous_frame_time_usec: int
++var const_delta: float = 1.0 / 315.0
++
++func _init():
++
++	# This should decrease the average input latency.
++	# However, it should't change the theoretical upper bound for input latency.
++	# The theoretical upper bound for input latency should still be 2 intervals.
++	Input.set_use_accumulated_input(false)
++
++	self.previous_frame_time_usec = -1
++	print("Sphere._init()")
++
++func _process(delta: float) -> void:
++	# if self.fixed_delta_refresh_rate_hz > 0.0:
++	# 	var current_frame_time_usec: int = Time.get_ticks_usec()
++	# 	if self.previous_frame_time_usec < 0:
++	# 		self.previous_frame_time_usec = current_frame_time_usec
++	# 	else:
++	# 		var frame_duration: float = (current_frame_time_usec - self.previous_frame_time_usec) / 1_000_000.0
++	# 		if frame_duration > ((1.0 / self.fixed_delta_refresh_rate_hz) * 1.05):
++	# 			print("[%s] %.4f" % [get_timestamp(), frame_duration * 1000.0])
++	# 		self.previous_frame_time_usec = current_frame_time_usec
++
++	# if self.fixed_delta_refresh_rate_hz > 0.0:
++	# 	delta = 1.0 / self.fixed_delta_refresh_rate_hz
++
++	self.position.x += self.direction * self.speed * delta
++
++	# Some overshoot is fine
++	if abs(self.position.x) > self.travel_distance:
++		self.direction *= -1
++
++func get_timestamp() -> String:
++	var unix_time := Time.get_unix_time_from_system()
++	var seconds := int(floor(unix_time))
++	var milliseconds := int((unix_time - seconds) * 1000.0)
++
++	var timezone := Time.get_time_zone_from_system()
++	var offset_minutes: int = timezone["bias"]
++
++	# Convert UTC Unix time to the current local time.
++	var datetime := Time.get_datetime_dict_from_unix_time(
++		seconds + offset_minutes * 60
++	)
++
++	var offset := Time.get_offset_string_from_offset_minutes(offset_minutes)
++
++	return "%04d-%02d-%02d %02d:%02d:%02d.%03d %s" % [
++		datetime.year,
++		datetime.month,
++		datetime.day,
++		datetime.hour,
++		datetime.minute,
++		datetime.second,
++		milliseconds,
++		offset
++	]

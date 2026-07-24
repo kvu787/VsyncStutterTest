@@ -15,6 +15,8 @@ $process = `
         -FilePath "C:\Users\kevin\Repository\Godot\VsyncStutterTest\MyBuildOutput\VsyncStutterTest.exe" `
         -PassThru
 
+        # -ArgumentList "--screen 1" `
+
 $process.PriorityClass = [System.Diagnostics.ProcessPriorityClass]::High
 Write-Host "Launched with PID=$($process.Id)"
 Wait-Process -Id $process.Id

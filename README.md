@@ -70,3 +70,12 @@ locked
 Monitor Technology = G-SYNC, Low Latency Mode = Ultra, Vertical Sync = On:
 locked
 225
+
+# NVIDIA Low Latency Mode testing w/ vsync
+
+Monitor Technology = G-SYNC, Low Latency Mode = Ultra, Vertical Sync = On:
+Monitor Technology = G-SYNC, Low Latency Mode = On, Vertical Sync = On:
+Monitor Technology = G-SYNC, Low Latency Mode = Off, Vertical Sync = On:
+Monitor Technology = Fixed Refresh, Low Latency Mode = Ultra, Vertical Sync = On:
+Monitor Technology = Fixed Refresh, Low Latency Mode = On, Vertical Sync = On
+Monitor Technology = Fixed Refresh, Low Latency Mode = Off, Vertical Sync = On:
