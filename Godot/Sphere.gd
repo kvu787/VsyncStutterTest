@@ -17,6 +17,8 @@ func _process(delta: float) -> void:
 
 	self.position.x += self.direction * self.speed * delta
 
-	# Some overshoot is fine
 	if abs(self.position.x) > self.travel_distance:
-		self.direction *= -1
+		if self.position.x > 0:
+			self.direction = -1
+		else:
+			self.direction = 1
