@@ -5,16 +5,20 @@ extends MeshInstance3D
 
 var speed: float = 8.0
 var travel_distance: float = 3.0
-
-# Get this from "Windows 11 > Settings > Display > Advanced display > Choose a refresh rate"
-var fixed_delta_refresh_rate_hz: float = 240.0
-
 var direction: int = 1
 
-func _process(delta: float) -> void:
-	if self.fixed_delta_refresh_rate_hz > 0.0:
-		delta = 1.0 / self.fixed_delta_refresh_rate_hz
+func _init():
+	print("BEGIN: Sphere._init()")
 
+	# This should decrease the average input latency.
+	# However, it should't change the theoretical upper bound for input latency.
+	# The theoretical upper bound for input latency should still be 2 intervals.
+	Input.set_use_accumulated_input(false)
+
+	print("END: Sphere._init()")
+
+
+func _process(delta: float) -> void:
 	self.position.x += self.direction * self.speed * delta
 
 	if abs(self.position.x) > self.travel_distance:
