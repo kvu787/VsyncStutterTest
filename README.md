@@ -1,6 +1,6 @@
 # Log path
 
-C:\Users\kevin\AppData\Roaming\Godot\app_userdata\VsyncStutterTest
+C:\Users\k\AppData\Roaming\Godot\app_userdata\VsyncStutterTest
 
 # Misc
 
