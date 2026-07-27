@@ -3,9 +3,10 @@
 
 extends MeshInstance3D
 
-var speed: float = 8.0
-var travel_distance: float = 3.0
-var direction: int = 1
+const Speed: float = 8.0
+const TravelDistance: float = 3.0
+
+var Direction: int = 1
 
 func _init():
 	print("BEGIN: Sphere._init()")
@@ -19,10 +20,10 @@ func _init():
 
 
 func _process(delta: float) -> void:
-	self.position.x += self.direction * self.speed * delta
+	self.position.x += self.Direction * self.Speed * delta
 
-	if abs(self.position.x) > self.travel_distance:
+	if abs(self.position.x) > self.TravelDistance:
 		if self.position.x > 0:
-			self.direction = -1
+			self.Direction = -1
 		else:
-			self.direction = 1
+			self.Direction = 1
