@@ -14,15 +14,16 @@
 
 # NVCP profile setup
 
-* Low Latency Mode = Ultra
-* Max Frame Rate =
-  * 240 FPS if internal limiter is disabled
-  * Off if internal limiter is enabled
-* Monitor Technology = G-SYNC
-* Power management mode = Prefer maximum performance
-* Preferred refresh rate = Application-controlled
-* Vertical sync = On
-* All other settings should remain on defaults
+1. Low Latency Mode = Ultra
+2. Max Frame Rate =
+   * 240 FPS if internal limiter is disabled
+   * Off if internal limiter is enabled
+3. Monitor Technology = G-SYNC
+4. Power management mode = Prefer maximum performance
+5. Preferred refresh rate = Application-controlled
+6. Vertical sync = On
+
+All other settings should remain on defaults
 
 # Log path
 
