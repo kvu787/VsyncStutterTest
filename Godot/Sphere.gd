@@ -3,7 +3,7 @@
 extends MeshInstance3D
 
 const Speed: float = 8.0
-const TravelDistance: float = 3.0
+const TravelDistance: float = 7.0
 
 var Direction: int
 var FrameCount: int
