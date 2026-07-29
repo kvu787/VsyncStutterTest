@@ -19,7 +19,7 @@ func _init():
 	print("END: Sphere._init()")
 
 func _process(delta: float) -> void:
-	self.position.x += self.Direction * self.Speed * (1.0/240.0)
+	self.position.x += self.Direction * self.Speed * delta
 
 	if abs(self.position.x) > self.TravelDistance:
 		if self.position.x > 0:
