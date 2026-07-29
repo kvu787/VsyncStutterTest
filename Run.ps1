@@ -14,7 +14,6 @@ if (Test-Path $presentMonPath) {
 }
 
 $process = Start-Process -FilePath "$env:UserProfile\Repository\Godot\VsyncStutterTest\MyBuildOutput\VsyncStutterTest.exe" -PassThru
-# -ArgumentList "--screen 1"
 
 $process.PriorityClass = [System.Diagnostics.ProcessPriorityClass]::High
 Write-Host "Launched with PID=$($process.Id)"
