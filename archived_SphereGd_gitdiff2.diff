@@ -1,0 +1,78 @@
+diff --git a/Godot/Sphere.gd b/Godot/Sphere.gd
+index 1060553..666fdfe 100644
+--- a/Godot/Sphere.gd
++++ b/Godot/Sphere.gd
+@@ -1,29 +1,44 @@
+-# Assume position starts at X=0
+-# Assume vsync=on and game runs at locked vsync
+-
+-extends MeshInstance3D
+-
+-const Speed: float = 8.0
+-const TravelDistance: float = 3.0
+-
+-var Direction: int = 1
+-
+-func _init():
+-	print("BEGIN: Sphere._init()")
+-
+-	# This should decrease the average input latency.
+-	# However, it should't change the theoretical upper bound for input latency.
+-	# The theoretical upper bound for input latency should still be 2 intervals.
+-	Input.set_use_accumulated_input(false)
+-
+-	print("END: Sphere._init()")
+-
+-
+-func _process(delta: float) -> void:
+-	self.position.x += self.Direction * self.Speed * delta
+-
+-	if abs(self.position.x) > self.TravelDistance:
+-		if self.position.x > 0:
+-			self.Direction = -1
+-		else:
+-			self.Direction = 1
++# Assume position starts at X=0
++# Assume vsync=off and max_fps=off in project settings
++
++extends MeshInstance3D
++
++const Speed: float = 8.0
++const TravelDistance: float = 3.0
++
++var Direction: int
++var FrameCount: int
++
++func _init():
++	print("BEGIN: Sphere._init()")
++
++	# This should decrease the average input latency.
++	# However, it should't change the theoretical upper bound for input latency.
++	# The theoretical upper bound for input latency should still be 2 intervals.
++	Input.set_use_accumulated_input(false)
++
++	self.Direction = 1
++	self.FrameCount = 0
++
++	print("END: Sphere._init()")
++
++const FixedDelta: float = 1.0/240.0
++
++func _process(delta: float) -> void:
++	#while (Time.get_ticks_usec() - 1_000_000) < (self.FrameCount * 6_944):
++		#pass
++
++	self.position.x += self.Direction * self.Speed * self.FixedDelta
++
++	if abs(self.position.x) > self.TravelDistance:
++		if self.position.x > 0:
++			self.Direction = -1
++		else:
++			self.Direction = 1
++
++	self.FrameCount += 1
++
++func _input(event: InputEvent) -> void:
++	if event is InputEventKey and event.pressed and not event.echo:
++		if event.keycode == KEY_ESCAPE:
++			get_tree().quit()
