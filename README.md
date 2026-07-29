@@ -12,6 +12,18 @@
   * Then, set profile to Balance and then back to Performance to ensure that the profile is correctly applied
   * Conversely, set the profile to Quiet or Balance to reproduce and investigate micro-jitter
 
+# NVCP profile setup
+
+* Low Latency Mode = Ultra
+* Max Frame Rate =
+  * 240 FPS if internal limiter is disabled
+  * Off if internal limiter is enabled
+* Monitor Technology = G-SYNC
+* Power management mode = Prefer maximum performance
+* Preferred refresh rate = Application-controlled
+* Vertical sync = On
+* All other settings should remain on defaults
+
 # Log path
 
 C:\Users\k\AppData\Roaming\Godot\app_userdata\VsyncStutterTest
