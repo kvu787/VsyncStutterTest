@@ -1,5 +1,4 @@
-# Assume position starts at X=0
-# Assume vsync=on and game runs at locked vsync
+# Assume sphere position starts at X=0
 
 extends MeshInstance3D
 
