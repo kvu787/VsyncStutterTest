@@ -1,3 +1,11 @@
+# Notes
+
+* With gsync on, if change low latency mode from off to ultra, the fps cap goes from unlimited to 1250
+* Nvidia battery boost is enabled by default
+  * This means that when power cable is disconnected, games are capped to 30 fps
+  * You should disable battery boost so that battery-only hardware behavior aligns better with plugged-in hardware behavior
+  * The only way to disable battery boost is to install "NVIDIA App" from the microsoft store and disable it in there
+
 # Log path
 
 C:\Users\k\AppData\Roaming\Godot\app_userdata\VsyncStutterTest
