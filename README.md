@@ -5,6 +5,11 @@
   * This means that when power cable is disconnected, games are capped to 30 fps
   * You should disable battery boost so that battery-only hardware behavior aligns better with plugged-in hardware behavior
   * The only way to disable battery boost is to install "NVIDIA App" from the microsoft store and disable it in there
+* Using Legion Space to set the profile to "Performance + enable GPU OC" is ***required*** to avoid micro-jitter at 240 hz
+  * To avoid issues, don't set Legion Space to automatically run at startup
+  * Manually open Legion Space after booting into desktop
+  * Then, set profile to Balance and then back to Performance to ensure that the profile is correctly applied
+  * Conversely, set the profile to Quiet or Balance to reproduce and investigate micro-jitter
 
 # Log path
 
