@@ -1,6 +1,7 @@
 # Notes
 
-* With gsync on, if you change low latency mode from off to ultra, the fps cap goes from unlimited to 1250
+* If you change low latency mode from off to ultra, the fps cap goes from unlimited to 1250
+  * This occurs with both gsync on and off
 * Disable Nvidia battery boost
   * Nvidia battery boost is enabled by default
   * This means that when power cable is disconnected, games are capped to 30 fps
