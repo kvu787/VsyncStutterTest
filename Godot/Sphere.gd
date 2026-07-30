@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	#while (Time.get_ticks_usec() - 1_000_000) < (self.FrameCount * 4_167):
 		#pass
 
-	self.position.x += self.Direction * self.Speed * (1.0/240.0)
+	self.position.x += self.Direction * self.Speed * delta
 
 	if abs(self.position.x) > self.TravelDistance:
 		if self.position.x > 0:
