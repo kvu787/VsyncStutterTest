@@ -1,5 +1,11 @@
 # Notes
 
+* Strobing on vs off
+  * Strobing=on means either Pulsar or ULMB 2 is on
+  * Strobing can sometimes make moving objects look like they have a tiny bit of micro-jitter
+    * Even though the overall motion clarity is clearly better than strobing=off
+  * If you think you see micro-jitter, disable Pulsar/ULMB before doing anything else
+  * I find that the motion looks "smoother" but definitely "less clear" with strobing=off
 * If you change low latency mode from off to ultra, the fps cap goes from unlimited to 1250
   * This occurs with both gsync on and off
 * Disable Nvidia battery boost
