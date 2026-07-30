@@ -1,11 +1,13 @@
 # Notes
 
 * "Shimmering" along motion axis
-  * I consistently observe "shimmering" at the edge of moving objects along the axis of motion
-  * This test scene depicts a blue sphere moving back and forth between the top-left and bottom-right corners of the screen
+  * I consistently observe "shimmering" at the edge of moving objects along the axis of motion.
+  * This test scene depicts a blue sphere moving back and forth between the top-left and bottom-right corners of the screen.
   * When I follow the top-left and bottom-right parts of the sphere's edge with my eyes, I notice some "shimmering".
     * This shimmering is noticable when strobing=on and very noticeable when strobing=off.
   * However, when I track top-right and bottom-left of the sphere's edge, I don't observe shimmering.
+  * The PresentMon capture while this happens shows excellent conformance, so I suspect this shimmer issue is an inherent limitation of the XG27AQNGV or display technology in general.
+  * To better observe this shimmering, record video of the screen with a high-speed camera capture.
 * Strobing on vs off
   * Strobing=on means either Pulsar or ULMB 2 is on
   * Strobing can sometimes make moving objects look like they have a tiny bit of micro-jitter
