@@ -1,3 +1,7 @@
+# How to run smoothly
+
+Refer to "Recommended setup for Unity and Godot games" in https://github.com/kvu787/SharedTools/blob/main/README.md.
+
 # Notes
 
 * "Shimmering" along motion axis
