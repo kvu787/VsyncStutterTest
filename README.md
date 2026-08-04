@@ -30,6 +30,15 @@ Refer to "Recommended setup for Unity and Godot games" in https://github.com/kvu
   * Manually open Legion Space after booting into desktop
   * Then, set profile to Balance and then back to Performance to ensure that the profile is correctly applied
   * Conversely, set the profile to Quiet or Balance to reproduce and investigate micro-jitter
+* Intel PresentMon (IPM) monitor overlay issues
+  * This refers to the UI application from Intel (https://game.intel.com/us/intel-presentmon), not the console application from https://github.com/gametechdev/presentmon.
+  * IPM offers an in-game performance monitor overlay similar to the Steam performance monitor overlay
+  * However, I have observed this overlay causing issues with the display pipeline, which defeats its purpose
+  * To avoid this, use the windowed mode option and move the monitor window to a secondary display
+  * Here are PresentMon captures from sessions using the monitor overlay vs the monitor window:
+    * [SavedLogOutput\2026-08-04_08-26-02 intel presentmon overlay\PresentMon.csv](<SavedLogOutput\2026-08-04_08-26-02 intel presentmon overlay\PresentMon.csv>)
+    * [SavedLogOutput\2026-08-04_08-28-38 intel presentmon window\PresentMon.csv](<SavedLogOutput\2026-08-04_08-28-38 intel presentmon window\PresentMon.csv>)
+  * Here is analysis and comparison of those captures: [Intel PresentMon overlay issue analysis.md](<Intel PresentMon overlay issue analysis.md>)
 
 # NVCP profile setup
 
