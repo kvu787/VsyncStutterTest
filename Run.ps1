@@ -13,7 +13,11 @@ New-Item -ItemType "Directory" -Path $logFolderPath
 #         -Verb "RunAs"
 # }
 
-$process = Start-Process -FilePath "$env:UserProfile\Repository\Godot\VsyncStutterTest\MyBuildOutput\VsyncStutterTest.exe" -PassThru
+$godotLogFilePath = "$logFolderPath\Godot.log"
+$process = Start-Process `
+    -FilePath "$env:UserProfile\Repository\Godot\VsyncStutterTest\MyBuildOutput\VsyncStutterTest.exe" `
+    -ArgumentList "--log-file `"$godotLogFilePath`"" `
+    -PassThru
 
 $process.PriorityClass = [System.Diagnostics.ProcessPriorityClass]::High
 Write-Host "Launched with PID=$($process.Id)"
