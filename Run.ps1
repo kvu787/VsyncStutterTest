@@ -1,7 +1,7 @@
 Set-StrictMode -Version "Latest"
 $ErrorActionPreference = "Stop"
 
-$logFolderPath = "$env:UserProfile\Repository\Godot\VsyncStutterTest\MyLogOutput\$(Get-Date -Format "yyyy-MM-dd_HH-mm-ss")"
+$logFolderPath = "$env:UserProfile\Repository\VsyncStutterTest\MyLogOutput\$(Get-Date -Format "yyyy-MM-dd_HH-mm-ss")"
 New-Item -ItemType "Directory" -Path $logFolderPath
 
 # $presentMonPath = "$env:UserProfile\Program\PresentMon-2.5.1-x64.exe"
@@ -15,7 +15,7 @@ New-Item -ItemType "Directory" -Path $logFolderPath
 
 $godotLogFilePath = "$logFolderPath\Godot.log"
 $process = Start-Process `
-    -FilePath "$env:UserProfile\Repository\Godot\VsyncStutterTest\MyBuildOutput\VsyncStutterTest.exe" `
+    -FilePath "$env:UserProfile\Repository\VsyncStutterTest\MyBuildOutput\VsyncStutterTest.exe" `
     -ArgumentList "--log-file `"$godotLogFilePath`"" `
     -PassThru
 
